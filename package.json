@@ -1,0 +1,32 @@
+{
+  "name": "tree-sitter-turbowave",
+  "version": "1.0.2",
+  "description": "turbowave input file language",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "install": "node-gyp rebuild"
+  },
+  "keywords": [
+    "parser",
+    "lexer"
+  ],
+  "author": "Daniel Gordon",
+  "dependencies": {
+    "nan": "^2.14.1"
+  },
+  "devDependencies": {
+    "tree-sitter-cli": "^0.16.7"
+  },
+  "repository": "https://github.com/dfgordon/tree-sitter-turbowave",
+  "tree-sitter": [
+	  {
+		  "scope": "source.turbowave",
+		  "file-types": [
+			  "tw"
+		  ]
+	  }
+  ],
+  "gypfile": true,
+  "license": "public"
+}

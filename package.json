@@ -20,12 +20,12 @@
   },
   "repository": "https://github.com/dfgordon/tree-sitter-turbowave",
   "tree-sitter": [
-	  {
-		  "scope": "source.turbowave",
-		  "file-types": [
-			  "tw"
-		  ]
-	  }
+    {
+      "scope": "source.turbowave",
+      "file-types": [
+        "tw"
+      ]
+    }
   ],
   "gypfile": true,
   "license": "public"

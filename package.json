@@ -12,6 +12,7 @@
     "lexer"
   ],
   "author": "Daniel Gordon",
+  "license": "public",
   "dependencies": {
     "nan": "^2.14.1"
   },
@@ -26,7 +27,5 @@
         "tw"
       ]
     }
-  ],
-  "gypfile": true,
-  "license": "public"
+  ]
 }

@@ -15,11 +15,11 @@ While our emphasis is C++ and Python, the parser can be called from several lang
 
 2. Install the parser library in your project directory using `npm install tree-sitter-turbowave`
 
-3. As a test you can try the example Python script below (use pip to install the tree-sitter module)
+3. If this is a Python project activate your environment and run `pip install tree-sitter`
 
 ## Sample Python Parsing script
 
-This following code simply prints the types of the top level nodes of the syntax tree.  The name of a turboWAVE input file is the only argument.
+The following code simply prints the types of the top level nodes of the syntax tree.  The name of a turboWAVE input file is the only argument.
 
 	import sys
 	from tree_sitter import Language, Parser

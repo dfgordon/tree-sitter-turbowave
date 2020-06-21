@@ -15,7 +15,7 @@ While our emphasis is C++ and Python, the parser can be called from several lang
 
 2. Install the parser library in your project directory using `npm install tree-sitter-turbowave`
 
-3. As a test you can try the example Python script below.
+3. As a test you can try the example Python script below (use pip to install the tree-sitter module)
 
 ## Sample Python Parsing script
 

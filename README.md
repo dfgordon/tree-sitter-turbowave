@@ -17,7 +17,7 @@ While our emphasis is C++ and Python, the parser can be called from several lang
 
 3. If this is a Python project activate your environment and run `pip install tree-sitter`
 
-## Sample Python Parsing script
+## Sample Python Parsing Script
 
 The following code simply prints the types of the top level nodes of the syntax tree.  The name of a turboWAVE input file is the only argument.
 
@@ -41,7 +41,7 @@ The following code simply prints the types of the top level nodes of the syntax 
 	for child in tree.root_node.children:
 	    print(child.type)
 
-# Sample turboWAVE input File
+# Sample turboWAVE Input File
 
 This is a SPARC database file with bare bones argon plasma chemistry.
 
@@ -92,3 +92,7 @@ This is a SPARC database file with bare bones argon plasma chemistry.
 	// molecular argon
 	new reaction = { Ar[+] + Ar + Ar -> Ar2[+] + Ar + 2.61 } rate = 2.55e-31 0.0 0.0 e(:)
 	new reaction = { Ar2[+] + e -> Ar + Ar + 13.15 } rate = 5.4e-8 -0.667 0.0 e(:)
+
+# Development Notes
+
+In order to change the grammar, it is not enough to edit `grammar.js`.  The parser has to be explicitly regenerated using `tree-sitter generate`.  This requires that the tree-sitter CLI be installed in the project.

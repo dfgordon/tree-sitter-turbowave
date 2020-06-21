@@ -100,6 +100,11 @@
     }
   },
   {
+    "type": "boolean",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "chems",
     "named": true,
     "fields": {},
@@ -173,6 +178,10 @@
       "multiple": false,
       "required": true,
       "types": [
+        {
+          "type": "boolean",
+          "named": true
+        },
         {
           "type": "decimal",
           "named": true
@@ -537,6 +546,10 @@
       "required": true,
       "types": [
         {
+          "type": "boolean",
+          "named": true
+        },
+        {
           "type": "decimal",
           "named": true
         },
@@ -680,6 +693,10 @@
     "named": false
   },
   {
+    "type": "false",
+    "named": false
+  },
+  {
     "type": "for",
     "named": false
   },
@@ -736,7 +753,19 @@
     "named": false
   },
   {
+    "type": "no",
+    "named": false
+  },
+  {
     "type": "ns",
+    "named": false
+  },
+  {
+    "type": "off",
+    "named": false
+  },
+  {
+    "type": "on",
     "named": false
   },
   {
@@ -764,6 +793,10 @@
     "named": false
   },
   {
+    "type": "true",
+    "named": false
+  },
+  {
     "type": "um",
     "named": false
   },
@@ -773,6 +806,10 @@
   },
   {
     "type": "us",
+    "named": false
+  },
+  {
+    "type": "yes",
     "named": false
   },
   {

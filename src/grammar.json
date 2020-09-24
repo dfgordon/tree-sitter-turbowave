@@ -568,111 +568,123 @@
       "members": [
         {
           "type": "STRING",
-          "value": "deg"
+          "value": "[deg]"
         },
         {
           "type": "STRING",
-          "value": "rad"
+          "value": "[rad]"
         },
         {
           "type": "STRING",
-          "value": "mrad"
+          "value": "[mrad]"
         },
         {
           "type": "STRING",
-          "value": "urad"
+          "value": "[urad]"
         },
         {
           "type": "STRING",
-          "value": "cm2"
+          "value": "[cm2]"
         },
         {
           "type": "STRING",
-          "value": "m2"
+          "value": "[m2]"
         },
         {
           "type": "STRING",
-          "value": "cm2s"
+          "value": "[cm2/s]"
         },
         {
           "type": "STRING",
-          "value": "m2s"
+          "value": "[m2/s]"
         },
         {
           "type": "STRING",
-          "value": "um"
+          "value": "[um]"
         },
         {
           "type": "STRING",
-          "value": "mm"
+          "value": "[mm]"
         },
         {
           "type": "STRING",
-          "value": "cm"
+          "value": "[cm]"
         },
         {
           "type": "STRING",
-          "value": "m"
+          "value": "[m]"
         },
         {
           "type": "STRING",
-          "value": "fs"
+          "value": "[fs]"
         },
         {
           "type": "STRING",
-          "value": "ps"
+          "value": "[ps]"
         },
         {
           "type": "STRING",
-          "value": "ns"
+          "value": "[ns]"
         },
         {
           "type": "STRING",
-          "value": "us"
+          "value": "[us]"
         },
         {
           "type": "STRING",
-          "value": "s"
+          "value": "[s]"
         },
         {
           "type": "STRING",
-          "value": "m-3"
+          "value": "[/m3]"
         },
         {
           "type": "STRING",
-          "value": "cm-3"
+          "value": "[/cm3]"
         },
         {
           "type": "STRING",
-          "value": "Jm3"
+          "value": "[J/m3]"
         },
         {
           "type": "STRING",
-          "value": "Jcm3"
+          "value": "[J/cm3]"
         },
         {
           "type": "STRING",
-          "value": "eV"
+          "value": "[eV]"
         },
         {
           "type": "STRING",
-          "value": "K"
+          "value": "[K]"
         },
         {
           "type": "STRING",
-          "value": "V"
+          "value": "[V]"
         },
         {
           "type": "STRING",
-          "value": "Vm"
+          "value": "[webers/m]"
         },
         {
           "type": "STRING",
-          "value": "Vcm"
+          "value": "[G*cm]"
         },
         {
           "type": "STRING",
-          "value": "T"
+          "value": "[V/m]"
+        },
+        {
+          "type": "STRING",
+          "value": "[V/cm]"
+        },
+        {
+          "type": "STRING",
+          "value": "[T]"
+        },
+        {
+          "type": "STRING",
+          "value": "[G]"
         }
       ]
     },

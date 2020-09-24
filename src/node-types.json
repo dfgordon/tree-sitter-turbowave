@@ -621,47 +621,123 @@
     "named": false
   },
   {
-    "type": "Jcm3",
+    "type": "[/cm3]",
     "named": false
   },
   {
-    "type": "Jm3",
+    "type": "[/m3]",
     "named": false
   },
   {
-    "type": "K",
+    "type": "[G*cm]",
     "named": false
   },
   {
-    "type": "T",
+    "type": "[G]",
     "named": false
   },
   {
-    "type": "V",
+    "type": "[J/cm3]",
     "named": false
   },
   {
-    "type": "Vcm",
+    "type": "[J/m3]",
     "named": false
   },
   {
-    "type": "Vm",
+    "type": "[K]",
     "named": false
   },
   {
-    "type": "cm",
+    "type": "[T]",
     "named": false
   },
   {
-    "type": "cm-3",
+    "type": "[V/cm]",
     "named": false
   },
   {
-    "type": "cm2",
+    "type": "[V/m]",
     "named": false
   },
   {
-    "type": "cm2s",
+    "type": "[V]",
+    "named": false
+  },
+  {
+    "type": "[cm2/s]",
+    "named": false
+  },
+  {
+    "type": "[cm2]",
+    "named": false
+  },
+  {
+    "type": "[cm]",
+    "named": false
+  },
+  {
+    "type": "[deg]",
+    "named": false
+  },
+  {
+    "type": "[eV]",
+    "named": false
+  },
+  {
+    "type": "[fs]",
+    "named": false
+  },
+  {
+    "type": "[m2/s]",
+    "named": false
+  },
+  {
+    "type": "[m2]",
+    "named": false
+  },
+  {
+    "type": "[m]",
+    "named": false
+  },
+  {
+    "type": "[mm]",
+    "named": false
+  },
+  {
+    "type": "[mrad]",
+    "named": false
+  },
+  {
+    "type": "[ns]",
+    "named": false
+  },
+  {
+    "type": "[ps]",
+    "named": false
+  },
+  {
+    "type": "[rad]",
+    "named": false
+  },
+  {
+    "type": "[s]",
+    "named": false
+  },
+  {
+    "type": "[um]",
+    "named": false
+  },
+  {
+    "type": "[urad]",
+    "named": false
+  },
+  {
+    "type": "[us]",
+    "named": false
+  },
+  {
+    "type": "[webers/m]",
     "named": false
   },
   {
@@ -681,14 +757,6 @@
     "named": true
   },
   {
-    "type": "deg",
-    "named": false
-  },
-  {
-    "type": "eV",
-    "named": false
-  },
-  {
     "type": "excitation",
     "named": false
   },
@@ -698,10 +766,6 @@
   },
   {
     "type": "for",
-    "named": false
-  },
-  {
-    "type": "fs",
     "named": false
   },
   {
@@ -725,39 +789,11 @@
     "named": false
   },
   {
-    "type": "m",
-    "named": false
-  },
-  {
-    "type": "m-3",
-    "named": false
-  },
-  {
-    "type": "m2",
-    "named": false
-  },
-  {
-    "type": "m2s",
-    "named": false
-  },
-  {
-    "type": "mm",
-    "named": false
-  },
-  {
-    "type": "mrad",
-    "named": false
-  },
-  {
     "type": "new",
     "named": false
   },
   {
     "type": "no",
-    "named": false
-  },
-  {
-    "type": "ns",
     "named": false
   },
   {
@@ -769,14 +805,6 @@
     "named": false
   },
   {
-    "type": "ps",
-    "named": false
-  },
-  {
-    "type": "rad",
-    "named": false
-  },
-  {
     "type": "rate",
     "named": false
   },
@@ -785,27 +813,11 @@
     "named": false
   },
   {
-    "type": "s",
-    "named": false
-  },
-  {
     "type": "section",
     "named": false
   },
   {
     "type": "true",
-    "named": false
-  },
-  {
-    "type": "um",
-    "named": false
-  },
-  {
-    "type": "urad",
-    "named": false
-  },
-  {
-    "type": "us",
     "named": false
   },
   {

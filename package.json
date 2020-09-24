@@ -1,6 +1,6 @@
 {
   "name": "tree-sitter-turbowave",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "turbowave input file language",
   "main": "index.js",
   "scripts": {

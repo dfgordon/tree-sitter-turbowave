@@ -14,10 +14,11 @@
   "author": "Daniel Gordon",
   "license": "public",
   "dependencies": {
-    "nan": "^2.14.1"
+    "nan": "^2.14.2",
+    "np": "^6.5.0"
   },
   "devDependencies": {
-    "tree-sitter-cli": "^0.16.7"
+    "tree-sitter-cli": "^0.16.9"
   },
   "repository": "https://github.com/dfgordon/tree-sitter-turbowave",
   "tree-sitter": [

@@ -413,7 +413,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "_integer"
+          "name": "decimal"
         },
         {
           "type": "SYMBOL",
@@ -449,7 +449,7 @@
     },
     "identifier": {
       "type": "PATTERN",
-      "value": "[a-zA-Z_][\\w\\[\\]\\+\\-\\^\\.]*"
+      "value": "[1-3]?[a-zA-Z_][\\w\\[\\]\\+\\-\\^\\.]*"
     },
     "identifier_sequence": {
       "type": "REPEAT1",
@@ -505,34 +505,9 @@
         }
       ]
     },
-    "_integer": {
-      "type": "PATTERN",
-      "value": "(\\+|\\-)?[0-9]+"
-    },
-    "_decimal1": {
-      "type": "PATTERN",
-      "value": "(\\+|\\-)?[0-9]+\\.?[0-9]*([eE](\\+|\\-)?[0-9]+)?"
-    },
-    "_decimal2": {
-      "type": "PATTERN",
-      "value": "(\\+|\\-)?\\.[0-9]+([eE](\\+|\\-)?[0-9]+)?"
-    },
     "decimal": {
-      "type": "CHOICE",
-      "members": [
-        {
-          "type": "SYMBOL",
-          "name": "_decimal1"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "_decimal2"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "_integer"
-        }
-      ]
+      "type": "PATTERN",
+      "value": "(\\+|\\-)?([0-9]+\\.?[0-9]*|\\.[0-9]+)([eE](\\+|\\-)?[0-9]+)?"
     },
     "boolean": {
       "type": "CHOICE",
@@ -691,22 +666,6 @@
     "dimension": {
       "type": "SEQ",
       "members": [
-        {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "STRING",
-              "value": "-"
-            },
-            {
-              "type": "BLANK"
-            }
-          ]
-        },
-        {
-          "type": "STRING",
-          "value": "%"
-        },
         {
           "type": "SYMBOL",
           "name": "decimal"

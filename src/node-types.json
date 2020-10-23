@@ -147,11 +147,6 @@
     }
   },
   {
-    "type": "decimal",
-    "named": true,
-    "fields": {}
-  },
-  {
     "type": "define",
     "named": true,
     "fields": {},
@@ -224,6 +219,10 @@
       "multiple": true,
       "required": true,
       "types": [
+        {
+          "type": "decimal",
+          "named": true
+        },
         {
           "type": "identifier",
           "named": true
@@ -585,10 +584,6 @@
     "named": false
   },
   {
-    "type": "%",
-    "named": false
-  },
-  {
     "type": "'",
     "named": false
   },
@@ -598,10 +593,6 @@
   },
   {
     "type": ")",
-    "named": false
-  },
-  {
-    "type": "-",
     "named": false
   },
   {
@@ -751,6 +742,10 @@
   {
     "type": "cross",
     "named": false
+  },
+  {
+    "type": "decimal",
+    "named": true
   },
   {
     "type": "define_key",

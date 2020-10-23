@@ -1,0 +1,28 @@
+=========
+Reactions
+=========
+
+new reaction = { Ar -> Ar[4s] : e -> e - 11.55 } rate = 4.5e-8 0.04 12.55 e(:)
+
+---
+
+(input_file
+(reaction
+    (full_formula
+      (sub_formula
+        (chems
+          (identifier))
+        (chems
+          (identifier)))
+      (sub_formula
+	(chems (identifier))
+	(chems (identifier) (decimal))))
+    (rate
+      (arrhenius
+        (decimal)
+        (decimal)
+        (decimal)))
+    (range
+      (identifier))))
+
+

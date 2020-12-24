@@ -12,7 +12,7 @@
     "lexer"
   ],
   "author": "Daniel Gordon",
-  "license": "public",
+  "license": "PUBLIC-DOMAIN",
   "dependencies": {
     "nan": "^2.14.2",
     "np": "^6.5.0"

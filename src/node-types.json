@@ -89,6 +89,10 @@
           "named": true
         },
         {
+          "type": "ifxdef",
+          "named": true
+        },
+        {
           "type": "include",
           "named": true
         },
@@ -166,33 +170,6 @@
     }
   },
   {
-    "type": "define_value",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "boolean",
-          "named": true
-        },
-        {
-          "type": "decimal",
-          "named": true
-        },
-        {
-          "type": "dimension",
-          "named": true
-        },
-        {
-          "type": "identifier",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
     "type": "dimension",
     "named": true,
     "fields": {},
@@ -206,6 +183,57 @@
         },
         {
           "type": "unit",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "else_block",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "assignment",
+          "named": true
+        },
+        {
+          "type": "associative_new",
+          "named": true
+        },
+        {
+          "type": "collision",
+          "named": true
+        },
+        {
+          "type": "define",
+          "named": true
+        },
+        {
+          "type": "excitation",
+          "named": true
+        },
+        {
+          "type": "generate",
+          "named": true
+        },
+        {
+          "type": "ifxdef",
+          "named": true
+        },
+        {
+          "type": "include",
+          "named": true
+        },
+        {
+          "type": "new",
+          "named": true
+        },
+        {
+          "type": "reaction",
           "named": true
         }
       ]
@@ -307,6 +335,65 @@
     }
   },
   {
+    "type": "ifxdef",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "assignment",
+          "named": true
+        },
+        {
+          "type": "associative_new",
+          "named": true
+        },
+        {
+          "type": "collision",
+          "named": true
+        },
+        {
+          "type": "define",
+          "named": true
+        },
+        {
+          "type": "define_key",
+          "named": true
+        },
+        {
+          "type": "else_block",
+          "named": true
+        },
+        {
+          "type": "excitation",
+          "named": true
+        },
+        {
+          "type": "generate",
+          "named": true
+        },
+        {
+          "type": "ifxdef",
+          "named": true
+        },
+        {
+          "type": "include",
+          "named": true
+        },
+        {
+          "type": "new",
+          "named": true
+        },
+        {
+          "type": "reaction",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "include",
     "named": true,
     "fields": {},
@@ -355,6 +442,10 @@
         },
         {
           "type": "generate",
+          "named": true
+        },
+        {
+          "type": "ifxdef",
           "named": true
         },
         {
@@ -553,7 +644,7 @@
           "named": true
         },
         {
-          "type": "define_key",
+          "type": "define_ref",
           "named": true
         },
         {
@@ -577,6 +668,22 @@
   },
   {
     "type": "#define",
+    "named": false
+  },
+  {
+    "type": "#else",
+    "named": false
+  },
+  {
+    "type": "#endif",
+    "named": false
+  },
+  {
+    "type": "#ifdef",
+    "named": false
+  },
+  {
+    "type": "#ifndef",
     "named": false
   },
   {
@@ -749,6 +856,14 @@
   },
   {
     "type": "define_key",
+    "named": true
+  },
+  {
+    "type": "define_ref",
+    "named": true
+  },
+  {
+    "type": "define_value",
     "named": true
   },
   {

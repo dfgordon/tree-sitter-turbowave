@@ -8,13 +8,18 @@ module.exports = grammar(
   {
     input_file: $ => repeat($._top),
 
-    _top: $ => choice($.include,$.define,$._directive),
+    _top: $ => choice($.include,$.define,$.ifxdef,$._directive),
 
-    _nested: $ => choice($.include,$.define,$._nested_directive),
+    _nested: $ => choice($.include,$.define,$.ifxdef,$._nested_directive),
 
     include: $ => seq('#include',choice($.identifier,$.string_literal)),
 
     define: $ => seq('#define',$.define_key,$.define_value),
+
+    ifxdef: $ => seq(choice('#ifdef','#ifndef'),$.define_key,
+      repeat($._top),
+      optional($.else_block),
+      '#endif'),
 
     _directive: $ => choice($.assignment,$._statement),
 
@@ -60,7 +65,9 @@ module.exports = grammar(
 
     get: $ => seq('get',choice($.identifier,$.string_literal)),
 
-    define_key: $ => /\$[a-zA-Z_]\w*/,
+    else_block: $ => seq('#else',repeat($._top)),
+    define_key: $ => /\$[^,=(){}\s]+/,
+    define_ref: $ => /[+-]?\$[^,=(){}\s]+/,
     identifier: $ => /[1-3]?[a-zA-Z_][\w\[\]\+\-\^\.]*/,
     identifier_sequence: $ => repeat1($.identifier),
     _string_literal_single: $ => seq('\'',$.identifier,'\''),
@@ -70,8 +77,8 @@ module.exports = grammar(
     boolean: $ => choice('true','false','yes','no','on','off'),
     unit: $ => choice('[deg]','[rad]','[mrad]','[urad]','[cm2]','[m2]','[cm2/s]','[m2/s]','[um]','[mm]','[cm]','[m]','[fs]','[ps]','[ns]','[us]','[s]','[/m3]','[/cm3]','[J/m3]','[J/cm3]','[eV]','[K]','[V]','[webers/m]','[G*cm]','[V/m]','[V/cm]','[T]','[G]'),
     dimension: $ => seq($.decimal,$.unit),
-    value: $ => choice($.identifier,$.decimal,$.dimension,$.define_key,$.string_literal,$.boolean),
-    define_value: $ => choice($.identifier,$.decimal,$.dimension,$.boolean),
+    value: $ => choice($.identifier,$.decimal,$.dimension,$.define_ref,$.string_literal,$.boolean),
+    define_value: $ => /.*/,
     block: $ => seq('{',repeat($._nested),'}'),
     tuple: $ => seq('(',repeat1($.value),')'),
     list: $ => seq('{',repeat1($.value),'}'),

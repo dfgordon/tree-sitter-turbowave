@@ -21,6 +21,10 @@
         },
         {
           "type": "SYMBOL",
+          "name": "ifxdef"
+        },
+        {
+          "type": "SYMBOL",
           "name": "_directive"
         }
       ]
@@ -35,6 +39,10 @@
         {
           "type": "SYMBOL",
           "name": "define"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "ifxdef"
         },
         {
           "type": "SYMBOL",
@@ -78,6 +86,51 @@
         {
           "type": "SYMBOL",
           "name": "define_value"
+        }
+      ]
+    },
+    "ifxdef": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "STRING",
+              "value": "#ifdef"
+            },
+            {
+              "type": "STRING",
+              "value": "#ifndef"
+            }
+          ]
+        },
+        {
+          "type": "SYMBOL",
+          "name": "define_key"
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_top"
+          }
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "else_block"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "STRING",
+          "value": "#endif"
         }
       ]
     },
@@ -443,9 +496,29 @@
         }
       ]
     },
+    "else_block": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "#else"
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_top"
+          }
+        }
+      ]
+    },
     "define_key": {
       "type": "PATTERN",
-      "value": "\\$[a-zA-Z_]\\w*"
+      "value": "\\$[^,=(){}\\s]+"
+    },
+    "define_ref": {
+      "type": "PATTERN",
+      "value": "[+-]?\\$[^,=(){}\\s]+"
     },
     "identifier": {
       "type": "PATTERN",
@@ -693,7 +766,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "define_key"
+          "name": "define_ref"
         },
         {
           "type": "SYMBOL",
@@ -706,25 +779,8 @@
       ]
     },
     "define_value": {
-      "type": "CHOICE",
-      "members": [
-        {
-          "type": "SYMBOL",
-          "name": "identifier"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "decimal"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "dimension"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "boolean"
-        }
-      ]
+      "type": "PATTERN",
+      "value": ".*"
     },
     "block": {
       "type": "SEQ",

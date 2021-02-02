@@ -23,11 +23,11 @@
       "required": true,
       "types": [
         {
-          "type": "identifier_sequence",
+          "type": "list",
           "named": true
         },
         {
-          "type": "list",
+          "type": "obj_key",
           "named": true
         },
         {
@@ -58,7 +58,7 @@
           "named": true
         },
         {
-          "type": "identifier_sequence",
+          "type": "obj_key",
           "named": true
         },
         {
@@ -164,6 +164,65 @@
         },
         {
           "type": "define_value",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "define_value",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "assignment",
+          "named": true
+        },
+        {
+          "type": "associative_new",
+          "named": true
+        },
+        {
+          "type": "block",
+          "named": true
+        },
+        {
+          "type": "collision",
+          "named": true
+        },
+        {
+          "type": "excitation",
+          "named": true
+        },
+        {
+          "type": "generate",
+          "named": true
+        },
+        {
+          "type": "list",
+          "named": true
+        },
+        {
+          "type": "new",
+          "named": true
+        },
+        {
+          "type": "obj_key",
+          "named": true
+        },
+        {
+          "type": "reaction",
+          "named": true
+        },
+        {
+          "type": "tuple",
+          "named": true
+        },
+        {
+          "type": "value",
           "named": true
         }
       ]
@@ -290,7 +349,7 @@
           "named": true
         },
         {
-          "type": "identifier_sequence",
+          "type": "obj_key",
           "named": true
         },
         {
@@ -314,21 +373,6 @@
         },
         {
           "type": "string_literal",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "identifier_sequence",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "identifier",
           "named": true
         }
       ]
@@ -506,11 +550,30 @@
           "named": true
         },
         {
-          "type": "identifier_sequence",
+          "type": "obj_key",
           "named": true
         },
         {
           "type": "string_literal",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "obj_key",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "special_keys",
           "named": true
         }
       ]
@@ -576,6 +639,11 @@
         }
       ]
     }
+  },
+  {
+    "type": "special_keys",
+    "named": true,
+    "fields": {}
   },
   {
     "type": "string_literal",
@@ -704,6 +772,18 @@
   },
   {
     "type": "->",
+    "named": false
+  },
+  {
+    "type": "1d",
+    "named": false
+  },
+  {
+    "type": "2d",
+    "named": false
+  },
+  {
+    "type": "3d",
     "named": false
   },
   {
@@ -860,10 +940,6 @@
   },
   {
     "type": "define_ref",
-    "named": true
-  },
-  {
-    "type": "define_value",
     "named": true
   },
   {

@@ -25,7 +25,7 @@ module.exports = grammar(
 
     _nested_directive: $ => choice($.assignment,$._nested_statement),
 
-    assignment: $ => seq($.identifier_sequence,'=',choice($.value,$.tuple,$.list)),
+    assignment: $ => seq($.obj_key,'=',choice($.value,$.tuple,$.list)),
 
     _statement: $ => choice($.new,$.associative_new,$.generate,$.reaction,$.collision,$.excitation),
 
@@ -33,20 +33,20 @@ module.exports = grammar(
 
     new: $ => seq(
       'new',
-      $.identifier_sequence,
+      $.obj_key,
       optional($.string_literal),
       $.block),
 
     associative_new: $ => seq(
       'new',
-      $.identifier_sequence,
+      $.obj_key,
       optional($.string_literal),
       seq('for',choice($.string_literal,$.identifier)),
       $.block),
 
     generate: $ => seq(
       'generate',
-      $.identifier_sequence,
+      $.obj_key,
       optional($.string_literal),
       $.block),
 
@@ -68,20 +68,21 @@ module.exports = grammar(
     else_block: $ => seq('#else',repeat($._top)),
     define_key: $ => /\$[^,=(){}\s]+/,
     define_ref: $ => /[+-]?\$[^,=(){}\s]+/,
-    identifier: $ => /[1-3]?[a-zA-Z_][\w\[\]\+\-\^\.]*/,
-    identifier_sequence: $ => repeat1($.identifier),
-    _string_literal_single: $ => seq('\'',$.identifier,'\''),
-    _string_literal_double: $ => seq('\"',$.identifier,'\"'),
-    string_literal: $ => choice($._string_literal_double,$._string_literal_single),
     decimal: $ => /(\+|\-)?([0-9]+\.?[0-9]*|\.[0-9]+)([eE](\+|\-)?[0-9]+)?/,
     boolean: $ => choice('true','false','yes','no','on','off'),
     unit: $ => choice('[deg]','[rad]','[mrad]','[urad]','[cm2]','[m2]','[cm2/s]','[m2/s]','[um]','[mm]','[cm]','[m]','[fs]','[ps]','[ns]','[us]','[s]','[/m3]','[/cm3]','[J/m3]','[J/cm3]','[eV]','[K]','[V]','[webers/m]','[G*cm]','[V/m]','[V/cm]','[T]','[G]'),
     dimension: $ => seq($.decimal,$.unit),
-    value: $ => choice($.identifier,$.decimal,$.dimension,$.define_ref,$.string_literal,$.boolean),
-    define_value: $ => /.*/,
+    identifier: $ => /[a-zA-Z_][\w\[\]\+\-\^\.]*/,
+    special_keys: $ => choice('1d','2d','3d'),
+    obj_key: $ => prec(1,repeat1(choice($.identifier,$.special_keys))),
+    _string_literal_single: $ => seq('\'',$.identifier,'\''),
+    _string_literal_double: $ => seq('\"',$.identifier,'\"'),
+    string_literal: $ => choice($._string_literal_double,$._string_literal_single),
+    value: $ => prec(2,choice($.identifier,$.decimal,$.dimension,$.define_ref,$.string_literal,$.boolean)),
     block: $ => seq('{',repeat($._nested),'}'),
     tuple: $ => seq('(',repeat1($.value),')'),
     list: $ => seq('{',repeat1($.value),'}'),
+    define_value: $ => seq(prec(3,repeat(choice($._directive,$.value,$.block,$.tuple,$.list,$.obj_key))),/\r?\n/),
 
     comment: $ => token(choice(
         seq('//', /(\\(.|\r?\n)|[^\\\n])*/),

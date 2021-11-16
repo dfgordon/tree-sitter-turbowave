@@ -1,8 +1,8 @@
 ================
-Anonymous Child
+Named Object
 ================
 
-new child_obj for 'parent_name'
+new obj 'name'
 {
   test_val = 5.0
 }
@@ -10,8 +10,25 @@ new child_obj for 'parent_name'
 ---
 
 (input_file
-  (associative_new
+  (new
     (obj_key (identifier))
     (string_literal (identifier))
     (block
-      (assignment (obj_key (identifier)) (value (decimal))))))
+      (assignment (obj_key (identifier)) (decimal)))))
+
+================
+Anonymous Object
+================
+
+new obj
+{
+  test_val = 5.0
+}
+
+---
+
+(input_file
+  (new
+    (obj_key (identifier))
+    (block
+      (assignment (obj_key (identifier)) (decimal)))))

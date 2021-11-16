@@ -23,6 +23,26 @@
       "required": true,
       "types": [
         {
+          "type": "boolean",
+          "named": true
+        },
+        {
+          "type": "decimal",
+          "named": true
+        },
+        {
+          "type": "define_ref",
+          "named": true
+        },
+        {
+          "type": "dimension",
+          "named": true
+        },
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
           "type": "list",
           "named": true
         },
@@ -31,11 +51,11 @@
           "named": true
         },
         {
-          "type": "tuple",
+          "type": "string_literal",
           "named": true
         },
         {
-          "type": "value",
+          "type": "tuple",
           "named": true
         }
       ]
@@ -159,25 +179,6 @@
       "required": true,
       "types": [
         {
-          "type": "define_key",
-          "named": true
-        },
-        {
-          "type": "define_value",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "define_value",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": false,
-      "types": [
-        {
           "type": "assignment",
           "named": true
         },
@@ -190,7 +191,27 @@
           "named": true
         },
         {
+          "type": "boolean",
+          "named": true
+        },
+        {
           "type": "collision",
+          "named": true
+        },
+        {
+          "type": "decimal",
+          "named": true
+        },
+        {
+          "type": "define_key",
+          "named": true
+        },
+        {
+          "type": "define_ref",
+          "named": true
+        },
+        {
+          "type": "dimension",
           "named": true
         },
         {
@@ -199,6 +220,10 @@
         },
         {
           "type": "generate",
+          "named": true
+        },
+        {
+          "type": "identifier",
           "named": true
         },
         {
@@ -218,11 +243,11 @@
           "named": true
         },
         {
-          "type": "tuple",
+          "type": "string_literal",
           "named": true
         },
         {
-          "type": "value",
+          "type": "tuple",
           "named": true
         }
       ]
@@ -531,7 +556,27 @@
       "required": true,
       "types": [
         {
-          "type": "value",
+          "type": "boolean",
+          "named": true
+        },
+        {
+          "type": "decimal",
+          "named": true
+        },
+        {
+          "type": "define_ref",
+          "named": true
+        },
+        {
+          "type": "dimension",
+          "named": true
+        },
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "string_literal",
           "named": true
         }
       ]
@@ -684,26 +729,6 @@
       "required": true,
       "types": [
         {
-          "type": "value",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "unit",
-    "named": true,
-    "fields": {}
-  },
-  {
-    "type": "value",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
           "type": "boolean",
           "named": true
         },
@@ -729,6 +754,11 @@
         }
       ]
     }
+  },
+  {
+    "type": "unit",
+    "named": true,
+    "fields": {}
   },
   {
     "type": "\"",

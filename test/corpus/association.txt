@@ -1,0 +1,93 @@
+=====================
+Named Child Multi-Key
+=====================
+
+new child_obj of_type this_type 'child_name' for 'parent_name'
+{
+  test_val = 5.0
+}
+
+---
+
+(input_file
+  (associative_new
+    (obj_key (identifier) (identifier) (identifier))
+    (string_literal (identifier))
+    (string_literal (identifier))
+    (block
+      (assignment (obj_key (identifier)) (decimal)))))
+
+================
+Anonymous Child
+================
+
+new child_obj for 'parent_name'
+{
+  test_val = 5.0
+}
+
+---
+
+(input_file
+  (associative_new
+    (obj_key (identifier))
+    (string_literal (identifier))
+    (block
+      (assignment (obj_key (identifier)) (decimal)))))
+
+================
+Generate Form
+================
+
+generate uniform 'electrons'
+{
+}
+
+---
+
+(input_file
+  (generate
+    (obj_key (identifier))
+    (string_literal (identifier))
+    (block)))
+
+================
+Nested Objects
+================
+
+new obj1 'parent_name'
+{
+  new obj2 'child_name' {}
+  get 'other_child'
+}
+
+---
+
+(input_file
+  (new
+    (obj_key (identifier))
+    (string_literal (identifier))
+    (block
+      (new
+        (obj_key (identifier))
+        (string_literal (identifier))
+        (block))
+      (get (string_literal (identifier))))))
+
+================
+Get Form
+================
+
+new obj1 'parent_name'
+{
+  get 'other_child'
+}
+
+---
+
+(input_file
+  (new
+    (obj_key (identifier))
+    (string_literal (identifier))
+    (block
+      (get (string_literal (identifier))))))

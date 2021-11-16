@@ -14,7 +14,7 @@ module.exports = grammar(
 
     include: $ => seq('#include',choice($.identifier,$.string_literal)),
 
-    define: $ => seq('#define',$.define_key,$.define_value),
+    define: $ => seq('#define',$.define_key,$._define_value),
 
     ifxdef: $ => seq(choice('#ifdef','#ifndef'),$.define_key,
       repeat($._top),
@@ -25,7 +25,7 @@ module.exports = grammar(
 
     _nested_directive: $ => choice($.assignment,$._nested_statement),
 
-    assignment: $ => seq($.obj_key,'=',choice($.value,$.tuple,$.list)),
+    assignment: $ => seq($.obj_key,'=',choice($._value,$.tuple,$.list)),
 
     _statement: $ => choice($.new,$.associative_new,$.generate,$.reaction,$.collision,$.excitation),
 
@@ -84,11 +84,11 @@ module.exports = grammar(
     _string_literal_single: $ => seq('\'',$.identifier,'\''),
     _string_literal_double: $ => seq('\"',$.identifier,'\"'),
     string_literal: $ => choice($._string_literal_double,$._string_literal_single),
-    value: $ => prec(2,choice($.identifier,$.decimal,$.dimension,$.define_ref,$.string_literal,$.boolean)),
+    _value: $ => prec(2,choice($.identifier,$.decimal,$.dimension,$.define_ref,$.string_literal,$.boolean)),
     block: $ => seq('{',repeat($._nested),'}'),
-    tuple: $ => seq('(',repeat1($.value),')'),
-    list: $ => seq('{',repeat1($.value),'}'),
-    define_value: $ => seq(prec(3,repeat(choice($._directive,$.value,$.block,$.tuple,$.list,$.obj_key))),/\r?\n/),
+    tuple: $ => seq('(',repeat1($._value),')'),
+    list: $ => seq('{',repeat1($._value),'}'),
+    _define_value: $ => seq(prec(3,repeat(choice($._directive,$._value,$.block,$.tuple,$.list,$.obj_key))),/\r?\n/),
 
     comment: $ => token(choice(
         seq('//', /(\\(.|\r?\n)|[^\\\n])*/),

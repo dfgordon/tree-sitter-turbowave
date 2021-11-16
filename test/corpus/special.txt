@@ -1,0 +1,28 @@
+====================
+Comments
+====================
+
+// Line Comments
+
+/* Enclosing Comments
+This extends over lines.
+*/
+
+---
+
+(input_file (comment) (comment))
+
+====================
+Special keys
+====================
+
+new 1d obj {}
+new 2d obj {}
+new 3d obj {}
+
+---
+
+(input_file
+  (new (obj_key (special_keys) (identifier)) (block))
+  (new (obj_key (special_keys) (identifier)) (block))
+  (new (obj_key (special_keys) (identifier)) (block)))

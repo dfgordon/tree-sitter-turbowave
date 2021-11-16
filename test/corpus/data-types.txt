@@ -1,0 +1,130 @@
+=====================
+Raw Numbers
+=====================
+
+var1 = 1
+var2 = 1.0
+var3 = 1e5
+var4 = 1.
+var5 = .5
+var6 = .505e212
+var7 = ( 1 , 2 , 3 )
+var8 = { 1 ,2 , 3. }
+
+---
+
+(input_file
+  (assignment (obj_key (identifier)) (decimal))
+  (assignment (obj_key (identifier)) (decimal))
+  (assignment (obj_key (identifier)) (decimal))
+  (assignment (obj_key (identifier)) (decimal))
+  (assignment (obj_key (identifier)) (decimal))
+  (assignment (obj_key (identifier)) (decimal))
+  (assignment (obj_key (identifier)) (tuple (decimal) (decimal) (decimal)))
+  (assignment (obj_key (identifier)) (list (decimal) (decimal) (decimal))))
+
+=====================
+Space, Time, Angle
+=====================
+
+lengths = { 1 [um] 2 [mm] 3 [cm] 4[m] }
+durations = { 1 [fs] 2 [ps] 3 [ns] 4 [us] 5 [s] }
+angles = { 1 [deg] 2 [rad] 3[mrad] 4[urad] }
+
+---
+
+(input_file
+  (assignment (obj_key (identifier))
+    (list
+    (dimension (decimal) (unit))
+    (dimension (decimal) (unit))
+    (dimension (decimal) (unit))
+    (dimension (decimal) (unit))))
+  (assignment (obj_key (identifier))
+    (list
+    (dimension (decimal) (unit))
+    (dimension (decimal) (unit))
+    (dimension (decimal) (unit))
+    (dimension (decimal) (unit))
+    (dimension (decimal) (unit))))
+  (assignment (obj_key (identifier))
+    (list
+    (dimension (decimal) (unit))
+    (dimension (decimal) (unit))
+    (dimension (decimal) (unit))
+    (dimension (decimal) (unit)))))
+
+=====================
+Thermodynamics
+=====================
+
+density = { 1 [/m3], 2 [/cm3], 3 [kg/m3], 4[g/cm3], 1e-5[J/m3], 1[J/cm3]  }
+temperature = { 1 [eV] 1.5 [K] }
+pressure = { 3.4 [Pa] 1.5e26 [dynes/cm2] 12.6 [bar] }
+specific_energy = { 1.2 [ergs/g], 1.2 [J/kg] }
+
+---
+
+(input_file
+  (assignment (obj_key (identifier))
+    (list
+    (dimension (decimal) (unit))
+    (dimension (decimal) (unit))
+    (dimension (decimal) (unit))
+    (dimension (decimal) (unit))
+    (dimension (decimal) (unit))
+    (dimension (decimal) (unit))))
+  (assignment (obj_key (identifier))
+    (list
+    (dimension (decimal) (unit))
+    (dimension (decimal) (unit))))
+  (assignment (obj_key (identifier))
+    (list
+    (dimension (decimal) (unit))
+    (dimension (decimal) (unit))
+    (dimension (decimal) (unit))))
+  (assignment (obj_key (identifier))
+    (list
+    (dimension (decimal) (unit))
+    (dimension (decimal) (unit)))))
+
+=====================
+Transport
+=====================
+
+cross_section = { 1 [cm2], 2 [m2] }
+diffusivity = { 3 [cm2/s], 4[m2/s] }
+
+---
+
+(input_file
+  (assignment (obj_key (identifier))
+    (list
+    (dimension (decimal) (unit))
+    (dimension (decimal) (unit))))
+  (assignment (obj_key (identifier))
+    (list
+    (dimension (decimal) (unit))
+    (dimension (decimal) (unit)))))
+
+=====================
+Electrodynamics
+=====================
+
+potential = { 1 [V], 2 [webers/m], 1 [G*cm] }
+fields = { 1 [V/m], 2 [V/cm], 1 [T], 1e4 [G] }
+
+---
+
+(input_file
+  (assignment (obj_key (identifier))
+    (list
+    (dimension (decimal) (unit))
+    (dimension (decimal) (unit))
+    (dimension (decimal) (unit))))
+  (assignment (obj_key (identifier))
+    (list
+    (dimension (decimal) (unit))
+    (dimension (decimal) (unit))
+    (dimension (decimal) (unit))
+    (dimension (decimal) (unit)))))

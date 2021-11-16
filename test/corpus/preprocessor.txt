@@ -1,0 +1,21 @@
+================
+Preprocessor
+================
+
+#define $myconst 1.5e5
+#include "myfile.tw"
+#ifdef $myconst
+  #define $another 500
+#else
+  #define $another some text could go here
+#endif
+
+---
+
+(input_file
+  (define (define_key) (decimal))
+  (include (string_literal (identifier)))
+  (ifxdef (define_key)
+    (define (define_key) (decimal))
+    (else_block
+      (define (define_key) (identifier) (identifier) (identifier) (identifier) (identifier)))))

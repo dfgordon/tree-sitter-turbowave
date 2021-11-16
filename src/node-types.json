@@ -819,11 +819,19 @@
     "named": false
   },
   {
+    "type": "[J/kg]",
+    "named": false
+  },
+  {
     "type": "[J/m3]",
     "named": false
   },
   {
     "type": "[K]",
+    "named": false
+  },
+  {
+    "type": "[Pa]",
     "named": false
   },
   {
@@ -843,6 +851,10 @@
     "named": false
   },
   {
+    "type": "[bar]",
+    "named": false
+  },
+  {
     "type": "[cm2/s]",
     "named": false
   },
@@ -859,11 +871,27 @@
     "named": false
   },
   {
+    "type": "[dynes/cm2]",
+    "named": false
+  },
+  {
     "type": "[eV]",
     "named": false
   },
   {
+    "type": "[ergs/g]",
+    "named": false
+  },
+  {
     "type": "[fs]",
+    "named": false
+  },
+  {
+    "type": "[g/cm3]",
+    "named": false
+  },
+  {
+    "type": "[kg/m3]",
     "named": false
   },
   {
@@ -921,6 +949,10 @@
   {
     "type": "collision",
     "named": false
+  },
+  {
+    "type": "comment",
+    "named": true
   },
   {
     "type": "coulomb",

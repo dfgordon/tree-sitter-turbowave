@@ -1,0 +1,17 @@
+================
+Anonymous Child
+================
+
+new child_obj for 'parent_name'
+{
+  test_val = 5.0
+}
+
+---
+
+(input_file
+  (associative_new
+    (obj_key (identifier))
+    (string_literal (identifier))
+    (block
+      (assignment (obj_key (identifier)) (value (decimal))))))

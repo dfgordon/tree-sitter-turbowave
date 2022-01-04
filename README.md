@@ -1,47 +1,56 @@
+# TurboWAVE Parser
+
 This package provides a parser for [turboWAVE](https://github.com/USNavalResearchLaboratory/turboWAVE) input files.  It enables the following:
 
-- Syntax highlights for the Atom editor
+- Language services for certain editors
 - Python chemistry codes that want to utilize the SPARC database
 - Python tools for turboWAVE that need to parse the input file
 - Eventually the native turboWAVE parser may be replaced by tree-sitter parsing
 
 While our emphasis is C++ and Python, the parser can be called from several languages. Details can be found in the [tree sitter documentation](https://tree-sitter.github.io/tree-sitter/#language-bindings).
 
-# Using the Parser
+# Parsing with Python
 
-1. If Node.js is not already installed, install it.
+## Build the library
 
-2. Navigate to the directory for your project
+1. Clone the `tree-sitter-turbowave` repository
 
-2. Install the parser library in your project directory using `npm install tree-sitter-turbowave`
+2. Activate your Python environment and run `pip install tree-sitter`
 
-3. If this is a Python project activate your environment and run `pip install tree-sitter`
+3. Enter your project directory and run the following Python program
+
+```py
+from tree_sitter import Language
+Language.build_library('languages.so',['path/to/tree-sitter-turbowave'])
+```
+
+Once you have `languages.so` you can delete the local `tree-sitter-turbowave` repository if you wish.
 
 ## Sample Python Parsing Script
 
-The following code simply prints the types of the top level nodes of the syntax tree.  The name of a turboWAVE input file is the only argument.
+The following code takes an input file path as the argument, and prints the top level node types.  Note this code assumes `languages.so` is in the working directory.
 
-	import sys
-	from tree_sitter import Language, Parser
+```py
+import sys
+from tree_sitter import Language, Parser
 
-	if len(sys.argv)!=2:
-	    raise ValueError('Please provide one argument, the file to parse.')
+if len(sys.argv)!=2:
+	raise ValueError('Please provide one argument, the file to parse.')
 
-	Language.build_library('language-turbowave.so',['node_modules/tree-sitter-turbowave'])
-	twlang = Language('./language-turbowave.so','turbowave')
+twlang = Language('languages.so','turbowave')
+parser = Parser()
+parser.set_language(twlang)
 
-	parser = Parser()
-	parser.set_language(twlang)
+with open(sys.argv[1]) as f:
+	code = f.read()
 
-	with open(sys.argv[1]) as f:
-	    code = f.read()
+tree = parser.parse(bytes(code,"utf8"))
 
-	tree = parser.parse(bytes(code,"utf8"))
+for child in tree.root_node.children:
+	print(child.type)
+```
 
-	for child in tree.root_node.children:
-	    print(child.type)
-
-# Sample turboWAVE Input File
+## Sample turboWAVE Input File
 
 This is a SPARC database file with bare bones argon plasma chemistry.
 
@@ -92,7 +101,3 @@ This is a SPARC database file with bare bones argon plasma chemistry.
 	// molecular argon
 	new reaction = { Ar[+] + Ar + Ar -> Ar2[+] + Ar + 2.61 } rate = 2.55e-31 0.0 0.0 e(:)
 	new reaction = { Ar2[+] + e -> Ar + Ar + 13.15 } rate = 5.4e-8 -0.667 0.0 e(:)
-
-# Development Notes
-
-In order to change the grammar, it is not enough to edit `grammar.js`.  The parser has to be explicitly regenerated using `tree-sitter generate`.  This requires that the tree-sitter CLI be installed in the project.

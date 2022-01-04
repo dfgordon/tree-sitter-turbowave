@@ -1,0 +1,9 @@
+new adk ionization for 'He'
+//^ keyword.builtin
+//                  ^ keyword.builtin
+//                       ^ string
+{
+    ionization potential = 24.587 [eV]
+//                          ^ number
+//                                 ^ type
+}

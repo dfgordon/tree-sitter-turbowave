@@ -3,11 +3,6 @@
   "version": "1.7.0",
   "description": "turbowave input file language",
   "main": "bindings/node",
-  "scripts": {
-    "build": "tree-sitter generate && node-gyp build",
-    "test": "tree-sitter test",
-    "test-windows": "tree-sitter test"
-  },
   "keywords": [
     "parser",
     "lexer"
@@ -15,10 +10,11 @@
   "author": "Daniel Gordon",
   "license": "PUBLIC-DOMAIN",
   "dependencies": {
-    "nan": "^2.14.0"
+    "nan": "^2.14.0",
+    "tree-sitter": "^0.20.6"
   },
   "devDependencies": {
-    "tree-sitter-cli": "^0.20.1"
+    "tree-sitter-cli": "^0.20.6"
   },
   "repository": "https://github.com/dfgordon/tree-sitter-turbowave",
   "tree-sitter": [
@@ -28,5 +24,10 @@
         "tw"
       ]
     }
-  ]
+  ],
+  "scripts": {
+    "build": "tree-sitter generate && node-gyp build",
+    "test": "tree-sitter test",
+    "test-windows": "tree-sitter test"
+  }
 }

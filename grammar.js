@@ -55,19 +55,23 @@ module.exports = grammar(
     collision: $ => seq(
       'new','collision','=',
       $.identifier,'<->',$.identifier,
-      choice('coulomb',seq('cross','section','=',$.decimal))),
+      choice(
+        'coulomb',
+        seq('cross','section','=',$._rawqty),
+        seq('metallic','ks','=',$._rawqty,'fermi_energy_ev','=',$._rawqty,'ref_density','=',$._rawqty)
+      )),
 
     excitation: $ => seq(
       'new','excitation','=',
       $.identifier,'->',$.identifier,
-      'level','=',$.decimal,
+      'level','=',$._rawqty,
       $.rate),
 
     get: $ => seq('get',choice($.identifier,$.string_literal)),
 
     else_block: $ => seq('#else',repeat($._top)),
-    define_key: $ => /\$[^,=(){}\s]+/,
-    define_ref: $ => /[+-]?\$[^,=(){}\s]+/,
+    define_key: $ => /\$[^,=(){}:\s]+/,
+    define_ref: $ => /[+-]?\$[^,=(){}:\s]+/,
     decimal: $ => /(\+|\-)?([0-9]+\.?[0-9]*|\.[0-9]+)([eE](\+|\-)?[0-9]+)?/,
     boolean: $ => choice('true','false','yes','no','on','off'),
     unit: $ => choice('[deg]','[rad]','[mrad]','[urad]',
@@ -85,6 +89,8 @@ module.exports = grammar(
     _string_literal_double: $ => seq('\"',$.identifier,'\"'),
     string_literal: $ => choice($._string_literal_double,$._string_literal_single),
     _value: $ => prec(2,choice($.identifier,$.decimal,$.dimension,$.define_ref,$.string_literal,$.boolean)),
+    _qty: $ => prec(2,choice($.decimal,$.define_ref,$.dimension)),
+    _rawqty: $ => prec(2,choice($.decimal,$.define_ref)),
     block: $ => seq('{',repeat($._nested),'}'),
     tuple: $ => seq('(',repeat1($._value),')'),
     list: $ => seq('{',repeat1($._value),'}'),
@@ -95,15 +101,15 @@ module.exports = grammar(
         seq('/*',/[^*]*\*+([^/*][^*]*\*+)*/,'/'))),
 
     // Reaction rule is complex, broken down into the following pieces:
-    _pterm: $ => seq(/\s+\+\s+/,choice($.identifier,$.decimal,$.define_key)),
-    _nterm: $ => seq(/\s+\-\s+/,choice($.decimal,$.define_key)),
+    _pterm: $ => seq(/\s+\+\s+/,choice($.identifier,$._rawqty)),
+    _nterm: $ => seq(/\s+\-\s+/,$._rawqty),
     chems: $ => seq(choice($.identifier,$.define_key),repeat(choice($._pterm,$._nterm))),
     sub_formula: $ => seq($.chems,'->',$.chems),
     full_formula: $ => seq('\{',$.sub_formula,repeat(seq(':',$.sub_formula)),'\}'),
-    arrhenius: $ => seq('rate','=',$.decimal,$.decimal,$.decimal),
-    janev: $ => seq('janev_rate','=',$.decimal,$.decimal,$.decimal,$.decimal,$.decimal,$.decimal,$.decimal,$.decimal,$.decimal),
+    arrhenius: $ => seq('rate','=',$._rawqty,$._rawqty,$._rawqty),
+    janev: $ => seq('janev_rate','=',$._rawqty,$._rawqty,$._rawqty,$._rawqty,$._rawqty,$._rawqty,$._rawqty,$._rawqty,$._rawqty),
     rate: $=> choice($.arrhenius,$.janev),
-    range: $=> seq($.identifier,'(',optional($.decimal),':',optional($.decimal),')'),
+    range: $=> seq($.identifier,'(',optional($._rawqty),':',optional($._rawqty),')'),
 
   }
 });

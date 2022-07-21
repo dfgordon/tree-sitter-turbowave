@@ -1,0 +1,10 @@
+new object 'item'
+{
+	qty = 1
+}
+
+/*new object 'item2'
+{
+	qty=2
+}*/
+

@@ -421,7 +421,52 @@
                 },
                 {
                   "type": "SYMBOL",
-                  "name": "decimal"
+                  "name": "_rawqty"
+                }
+              ]
+            },
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "STRING",
+                  "value": "metallic"
+                },
+                {
+                  "type": "STRING",
+                  "value": "ks"
+                },
+                {
+                  "type": "STRING",
+                  "value": "="
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "_rawqty"
+                },
+                {
+                  "type": "STRING",
+                  "value": "fermi_energy_ev"
+                },
+                {
+                  "type": "STRING",
+                  "value": "="
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "_rawqty"
+                },
+                {
+                  "type": "STRING",
+                  "value": "ref_density"
+                },
+                {
+                  "type": "STRING",
+                  "value": "="
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "_rawqty"
                 }
               ]
             }
@@ -466,7 +511,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "decimal"
+          "name": "_rawqty"
         },
         {
           "type": "SYMBOL",
@@ -514,11 +559,11 @@
     },
     "define_key": {
       "type": "PATTERN",
-      "value": "\\$[^,=(){}\\s]+"
+      "value": "\\$[^,=(){}:\\s]+"
     },
     "define_ref": {
       "type": "PATTERN",
-      "value": "[+-]?\\$[^,=(){}\\s]+"
+      "value": "[+-]?\\$[^,=(){}:\\s]+"
     },
     "decimal": {
       "type": "PATTERN",
@@ -840,6 +885,44 @@
         ]
       }
     },
+    "_qty": {
+      "type": "PREC",
+      "value": 2,
+      "content": {
+        "type": "CHOICE",
+        "members": [
+          {
+            "type": "SYMBOL",
+            "name": "decimal"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "define_ref"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "dimension"
+          }
+        ]
+      }
+    },
+    "_rawqty": {
+      "type": "PREC",
+      "value": 2,
+      "content": {
+        "type": "CHOICE",
+        "members": [
+          {
+            "type": "SYMBOL",
+            "name": "decimal"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "define_ref"
+          }
+        ]
+      }
+    },
     "block": {
       "type": "SEQ",
       "members": [
@@ -999,11 +1082,7 @@
             },
             {
               "type": "SYMBOL",
-              "name": "decimal"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "define_key"
+              "name": "_rawqty"
             }
           ]
         }
@@ -1017,17 +1096,8 @@
           "value": "\\s+\\-\\s+"
         },
         {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "SYMBOL",
-              "name": "decimal"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "define_key"
-            }
-          ]
+          "type": "SYMBOL",
+          "name": "_rawqty"
         }
       ]
     },
@@ -1128,15 +1198,15 @@
         },
         {
           "type": "SYMBOL",
-          "name": "decimal"
+          "name": "_rawqty"
         },
         {
           "type": "SYMBOL",
-          "name": "decimal"
+          "name": "_rawqty"
         },
         {
           "type": "SYMBOL",
-          "name": "decimal"
+          "name": "_rawqty"
         }
       ]
     },
@@ -1153,39 +1223,39 @@
         },
         {
           "type": "SYMBOL",
-          "name": "decimal"
+          "name": "_rawqty"
         },
         {
           "type": "SYMBOL",
-          "name": "decimal"
+          "name": "_rawqty"
         },
         {
           "type": "SYMBOL",
-          "name": "decimal"
+          "name": "_rawqty"
         },
         {
           "type": "SYMBOL",
-          "name": "decimal"
+          "name": "_rawqty"
         },
         {
           "type": "SYMBOL",
-          "name": "decimal"
+          "name": "_rawqty"
         },
         {
           "type": "SYMBOL",
-          "name": "decimal"
+          "name": "_rawqty"
         },
         {
           "type": "SYMBOL",
-          "name": "decimal"
+          "name": "_rawqty"
         },
         {
           "type": "SYMBOL",
-          "name": "decimal"
+          "name": "_rawqty"
         },
         {
           "type": "SYMBOL",
-          "name": "decimal"
+          "name": "_rawqty"
         }
       ]
     },
@@ -1218,7 +1288,7 @@
           "members": [
             {
               "type": "SYMBOL",
-              "name": "decimal"
+              "name": "_rawqty"
             },
             {
               "type": "BLANK"
@@ -1234,7 +1304,7 @@
           "members": [
             {
               "type": "SYMBOL",
-              "name": "decimal"
+              "name": "_rawqty"
             },
             {
               "type": "BLANK"

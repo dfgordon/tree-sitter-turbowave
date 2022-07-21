@@ -25,4 +25,59 @@ new reaction = { Ar -> Ar[4s] : e -> e - 11.55 } rate = 4.5e-8 0.04 12.55 e(:)
     (range
       (identifier))))
 
+=====================
+Reactions with Macros
+=====================
 
+new reaction = { Ar -> Ar[4s] : e -> e - $losses } rate = $c1 $c2 $c3 e($1:$2)
+
+---
+
+(input_file
+(reaction
+    (full_formula
+      (sub_formula
+        (chems
+          (identifier))
+        (chems
+          (identifier)))
+      (sub_formula
+	      (chems (identifier))
+	      (chems (identifier) (define_ref))))
+    (rate
+      (arrhenius
+        (define_ref)
+        (define_ref)
+        (define_ref)))
+    (range
+      (identifier) (define_ref) (define_ref))))
+
+============
+Collisions
+============
+
+new collision = e <-> Ar[+], coulomb
+new collision = e <-> Ar, cross section = 1.0
+new collision = e <-> ion, metallic, ks = 1.0, fermi_energy_ev = 1.0, ref_density = 1e20
+
+---
+
+(input_file
+  (collision (identifier) (identifier))
+  (collision (identifier) (identifier) (decimal))
+  (collision (identifier) (identifier) (decimal) (decimal) (decimal)))
+
+======================
+Collisions with Macros
+======================
+
+new collision = e <-> Ar[+], coulomb
+new collision = e <-> Ar, cross section = $sigma
+new collision = e <-> ion, metallic, ks = 1.0, fermi_energy_ev = $energy, ref_density = 1e20
+
+---
+
+(input_file
+  (collision (identifier) (identifier))
+  (collision (identifier) (identifier) (define_ref))
+  (collision (identifier) (identifier) (decimal) (define_ref) (decimal)))

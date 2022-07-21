@@ -10,6 +10,10 @@
         {
           "type": "decimal",
           "named": true
+        },
+        {
+          "type": "define_ref",
+          "named": true
         }
       ]
     }
@@ -145,6 +149,10 @@
           "named": true
         },
         {
+          "type": "define_ref",
+          "named": true
+        },
+        {
           "type": "identifier",
           "named": true
         }
@@ -161,6 +169,10 @@
       "types": [
         {
           "type": "decimal",
+          "named": true
+        },
+        {
+          "type": "define_ref",
           "named": true
         },
         {
@@ -333,6 +345,10 @@
       "types": [
         {
           "type": "decimal",
+          "named": true
+        },
+        {
+          "type": "define_ref",
           "named": true
         },
         {
@@ -543,6 +559,10 @@
         {
           "type": "decimal",
           "named": true
+        },
+        {
+          "type": "define_ref",
+          "named": true
         }
       ]
     }
@@ -634,6 +654,10 @@
       "types": [
         {
           "type": "decimal",
+          "named": true
+        },
+        {
+          "type": "define_ref",
           "named": true
         },
         {
@@ -1013,6 +1037,10 @@
     "named": false
   },
   {
+    "type": "fermi_energy_ev",
+    "named": false
+  },
+  {
     "type": "for",
     "named": false
   },
@@ -1033,7 +1061,15 @@
     "named": false
   },
   {
+    "type": "ks",
+    "named": false
+  },
+  {
     "type": "level",
+    "named": false
+  },
+  {
+    "type": "metallic",
     "named": false
   },
   {
@@ -1058,6 +1094,10 @@
   },
   {
     "type": "reaction",
+    "named": false
+  },
+  {
+    "type": "ref_density",
     "named": false
   },
   {

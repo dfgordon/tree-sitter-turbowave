@@ -1,15 +1,8 @@
 # TurboWAVE Parser
 
-This package provides a parser for [turboWAVE](https://github.com/USNavalResearchLaboratory/turboWAVE) input files.  It enables the following:
+This package provides a parser for [turboWAVE](https://github.com/USNavalResearchLaboratory/turboWAVE) input files.  The parser is a C library, but there are bindings for several languages. Details can be found in the [tree sitter documentation](https://tree-sitter.github.io/tree-sitter/#language-bindings).
 
-- Language services for certain editors
-- Python chemistry codes that want to utilize the SPARC database
-- Python tools for turboWAVE that need to parse the input file
-- Eventually the native turboWAVE parser may be replaced by tree-sitter parsing
-
-While our emphasis is C++ and Python, the parser can be called from several languages. Details can be found in the [tree sitter documentation](https://tree-sitter.github.io/tree-sitter/#language-bindings).
-
-# Parsing with Python
+# Example: Parsing with Python
 
 ## Build the library
 
